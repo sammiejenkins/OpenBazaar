@@ -111,7 +111,7 @@ Function Configure
 
     Start-Process $pip -Wait  -NoNewWindow "install http://sourceforge.net/projects/py2exe/files/latest/download?source=files"
     Start-Process $pip -Wait  -NoNewWindow "install py2exe2msi"
-    Start-Process $pip -Wait  -NoNewWindow "install https://github.com/yagoulas/pysqlcipher/zipball/msvc-build"
+	Start-Process $pip -Wait  -NoNewWindow "install https://github.com/leapcode/pysqlcipher/archive/develop.zip" 
     Start-Process $pip -Wait  -NoNewWindow "install https://github.com/yagoulas/miniupnp/zipball/msvc_miniupnpc"
     Start-Process $pip -Wait  -NoNewWindow "install -r requirements.txt"
 }
