@@ -1,4 +1,3 @@
-
 $validArgs = @('clean', 'exe')
 
 $local = Get-Location;
@@ -57,10 +56,10 @@ Function CheckCompiler
     if((Test-Path Env:\VS90COMNTOOLS) -eq 0)
     {
         echo ''
-        echo 'ERROR: Could not detect Visual Studio 2008.'
-        echo 'You should download and install VS2008 before proceeding to compile the depedencies yourself'
-        echo 'Visual Studio 2008 Express edition is available here: go.microsoft.com/?linkid=7729279'
+        echo 'ERROR: Could not detect Visual Studio C++ 2008 - download: https://go.microsoft.com/?linkid=7729279'
+        echo 'You should download, install it and restart your command line/powershell session before re-running this. You do not need to install SQL Express during the installation.'
         echo ''
+		
         Exit
     }
 }
@@ -76,7 +75,9 @@ Function DownloadFile ($message, $file, $url)
 
 Function Configure
 {
-   if((Test-Path $setupsDir) -eq 0)
+	CheckCompiler
+	
+	if((Test-Path $setupsDir) -eq 0)
     {
         New-Item -ItemType directory -Path $setupsDir
     }
